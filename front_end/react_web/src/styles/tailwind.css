@@ -10639,7 +10639,7 @@ video {
   z-index: auto;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 240px) {
   .sm\:sr-only {
     position: absolute;
     width: 1px;

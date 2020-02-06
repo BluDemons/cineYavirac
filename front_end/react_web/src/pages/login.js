@@ -24,7 +24,7 @@ class Login extends Component {
       axios.post(API_LOGIN, this.state)
       .then(response => {
         if ( response.data.mensaje === "found" ) {
-          window.location.assign("http://localhost:3000/home");
+          window.location.assign("http://localhost:3001/addMovie");
         }
       })
       .catch(error => {
@@ -34,42 +34,78 @@ class Login extends Component {
   };
 
   render() {
-    const { correo, clave } = this.state
+    const { email, password } = this.state
+    const image= require('../assets/fondo.jpg')
     return (
-      <div className="bg-teal-200 h-screen font-sans">
-        <div className="container mx-auto h-full flex justify-center items-center">
-        <div className="w-1/3">
-            <h1 className="font-hairline mb-6 text-center text-2xl">Bienvenido!</h1>
-            <div className="border-teal p-8 border-t-12 bg-white mb-6 rounded-lg shadow-lg">
-              <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded" onSubmit={ this.loginAccess }>
-                <div className="mb-4">
-                  <label className="font-bold text-gray-700 block mb-2">Correo Institucional</label>
-                  <input className="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
-                  type="text"
-                  placeholder="correo@yavirac.edu.ec"
-                  name="correo"
-                  value={ correo }
-                  onChange={ this.changeHandler } 
+      <div
+        className="h-screen font-sans"
+        style={{ backgroundImage: `url(${image})` }}
+      >
+        <div className="flex justify-center px-6">
+          <div className="w-full xl:w-3/4 lg:w-11/12 flex my-16">
+            <div
+              className="bg-fixed w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"
+              style={{ backgroundImage: `url(${image})` }}
+            ></div>
+            <div className="w-full lg:w-1/2 bg-gray-800 p-5 rounded-lg lg:rounded-l-none">
+              <h3 className="pt-4 text-2xl text-white text-center">
+                Bienvenido de Vuelta!!
+              </h3>
+              <form className="px-8 pt-6 pb-8 mb-4 bg-gray-800 rounded">
+                <div className="mb-4 bg-gray-800">
+                  <label
+                    className="block mb-2 text-sm font-bold text-gray-200"
+                    htmlFor="username"
+                  >
+                    Usuario
+                  </label>
+                  <input
+                    className="w-full px-3 py-2 bg-gray-800 text-sm leading-tight text-gray-200 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                    type="text"
+                    placeholder="example@gmail.com"
+                    name="email"
+                    value={email}
+                    onChange={this.changeHandler}
                   />
                 </div>
-
                 <div className="mb-4">
-                  <label className="font-bold text-gray-700 block mb-2">Contraseña</label>
-                  <input className="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
-                  type="password"
-                  placeholder="******************"
-                  name="clave"
-                  value={ clave }
-                  onChange={ this.changeHandler } 
-                  securetextentry="true"
+                  <label
+                    className="block mb-2 text-sm font-bold text-gray-600"
+                    htmlFor="password"
+                  >
+                    Contraseña
+                  </label>
+                  <input
+                    className="w-full px-3 py-2 bg-gray-800 mb-3 text-sm leading-tight text-gray-200 border border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                    type="password"
+                    placeholder="******************"
+                    name="password"
+                    value={password}
+                    onChange={this.changeHandler}
                   />
                 </div>
-
-                <div className="flex items-center justify-between">
-                  <button type="submit" className="bg-teal-600 hover:bg-teal-700 focus:outline-none focus:shadow-outline text-white font-bold py-2 px-4 rounded">
+                <div className="mb-4">
+								<a className="text-blue-500 hover:text-white cursor-pointer">¿No tienes una cuenta? Resgístrate aquí!!</a>
+							</div>
+                <div className="mb-6 text-center">
+                  <button
+                    className="w-full px-4 py-2 font-bold text-gray-800 bg-blue-600 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+                    type="button"
+                  >
                     Ingresar
                   </button>
-                </div>  
+                </div>
+                <hr className="mb-6 border-t" />
+                <div className="text-center text-gray-500">
+                  Copyright &copy;{" "}
+                  <a
+                    className="inline-block text-sm text-blue-500 align-baseline hover:text-white"
+                    href="./home"
+                  >
+                    THWS
+                  </a>
+                  &nbsp; 2020
+                </div>
               </form>
             </div>
           </div>
