@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const API_LOGIN = "http://localhost:8001/server/login";
 
@@ -84,9 +85,11 @@ class Login extends Component {
                     onChange={this.changeHandler}
                   />
                 </div>
-                <div className="mb-4">
-								<a className="text-blue-500 hover:text-white cursor-pointer">¿No tienes una cuenta? Resgístrate aquí!!</a>
-							</div>
+                <Link to="/registro">
+                  <div className="mb-4">
+								    <span className="text-blue-500 hover:text-white cursor-pointer">¿No tienes una cuenta? Resgístrate aquí!!</span>
+							    </div>
+                </Link>                
                 <div className="mb-6 text-center">
                   <button
                     className="w-full px-4 py-2 font-bold text-gray-800 bg-blue-600 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
@@ -102,7 +105,7 @@ class Login extends Component {
                     className="inline-block text-sm text-blue-500 align-baseline hover:text-white"
                     href="./home"
                   >
-                    THWS
+                    Yavirac Cinema
                   </a>
                   &nbsp; 2020
                 </div>

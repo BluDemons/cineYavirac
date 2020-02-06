@@ -8,11 +8,13 @@ import Home from './pages/home';
 import Login from './pages/login';
 import AddMovie from './pages/addMovie';
 import Page404 from './pages/Page404';
+import Resgistro from './pages/registro';
 
 ReactDOM.render(
     <Router>
         <Switch>
             <Route exact path="/" component={ Login } />
+            <Route exact path="/registro" component={ Resgistro}/>
             <Route exact path="/home" component={ Home } />
             <Route path="/pelicula" component={ AddMovie } />
             {/* <Route path="/add_book" component={ AddBook } />
