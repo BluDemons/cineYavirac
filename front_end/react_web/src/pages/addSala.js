@@ -6,7 +6,7 @@ import axios from "axios";
 
 const API = "http://localhost:3000/server/sala";
 
-class AddMovie extends Component {
+class AddSala extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -58,72 +58,48 @@ class AddMovie extends Component {
         <Sidebar />
         <Header />
         <div className="md:ml-64 xl:ml-64 sm:ml-6 pt-6 pb-8">
+        <h1 className="md:ml-64 xl:ml-64 text-xl sm:ml-6 pt-6 pb-8">Salas</h1>
           <div className="leading-loose">
             <form className=" ml-64 max-w-xl m-4 p-10 bg-white rounded shadow-xl">
               <p className="text-gray-800 font-medium">Customer information</p>
               <div className="">
                 <label className="block text-sm text-gray-600" htmlFor="cus_name">
-                  Título
+                  Nombre
                 </label>
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
                   id="cus_name"
                   name="cus_name"
                   type="text"
-                  required=""
-                  placeholder="Añade un título"
+                  required={true}
+                  placeholder="Añade un nombre"
                   aria-label="Name"
                 />
               </div>
               <div className="mt-2">
                 <label className="block text-sm text-gray-600" htmlFor="cus_email">
-                  Resumen
+                  Descripción
                 </label>
                 <input
                   className="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded"
                   id="cus_email"
                   name="cus_email"
                   type="text-area"
-                  required=""
-                  placeholder="Añade un resumen"
+                  required={true}
+                  placeholder="Añade una descripción"
                   aria-label="Email"
                 />
-              </div>
-              <div className="">
-                <label className="block text-sm text-gray-600" htmlFor="cus_name">
-                  Categoría
-                </label>
-                <input
-                  className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
-                  name="cus_name"
-                  type="select"
-                  required="true"
-                  placeholder="Selecciona una categoría"
-                  aria-label="categoria"
-                />
-              </div>
-              <div className="">
-                <label className="block text-sm text-gray-600" htmlFor="cus_name">
-                  Precio
-                </label>
-                <input
-                  className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
-                  type="number"
-                  required="true"
-                  placeholder="Añade un precio"
-                  aria-label="precio"
-                />
-              </div>              
+              </div>                                          
               <div className="mt-4 flex justify-between">                
-                <Link to="/peliculas">
+                <Link to="/salas">
                   <button
-                    className="mx-auto bg-white text-gray-800 font-bold rounded border-b-2 border-red-500 hover:border-red-600 hover:bg-red-500 hover:text-white shadow-md py-2 px-2 inline-flex items-center"                    
+                    className=" mx-auto bg-white text-gray-800 font-bold rounded border-b-2 border-red-500 hover:border-red-600 hover:bg-red-500 hover:text-white shadow-md py-2 px-2 inline-flex items-center"                    
                   >
                     <i className="far fa-times-circle mr-2" />
                     <span>Cancelar</span>
                   </button>
                 </Link>
-                <Link to="/peliculas">
+                <Link to="/salas">
                   <button
                     className=" mx-auto bg-white text-gray-800 font-bold rounded border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-2 px-4 inline-flex items-center"
                     type="submit"
@@ -141,4 +117,4 @@ class AddMovie extends Component {
   }
 }
 
-export default AddMovie;
+export default AddSala;

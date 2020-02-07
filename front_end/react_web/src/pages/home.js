@@ -8,7 +8,7 @@ const Inicio =()=>{
         <Sidebar />
         <Header />
         <div className="md:ml-64 xl:ml-64 sm:ml-6 pt-6 pb-8">
-            <div className="mt-12 bg-white border-t border-b sm:border-l sm:border-r sm:rounded shadow mb-6">
+            <div className="mt-12 bg-white border-t overflow-x-scroll border-b sm:border-l sm:border-r sm:rounded shadow mb-6">
                 <div className="border-b px-6">
                     <div className=" justify-between -mb-px">
                         <div className="flex-grow lg:hidden text-blue py-4 text-lg">
@@ -56,7 +56,27 @@ const Inicio =()=>{
                         </div>
                     </div>
                 </div>
-                <div className="flex items-center px-6 lg:hidden">
+                <div className="flex bg-scroll items-center px-6 lg:hidden">
+                    <div className="flex-grow flex-no-shrink py-6">
+                        <div className="text-grey-darker mb-2">
+                            <span className="text-3xl align-top">CA$</span>
+                            <span className="text-5xl">21,404</span>
+                            <span className="text-3xl align-top">.74</span>
+                        </div>
+                        <div className="text-green-light text-sm">
+                            &uarr; CA$12,955.35 (154.16%)
+                        </div>
+                    </div>
+                    <div className="flex-grow flex-no-shrink py-6">
+                        <div className="text-grey-darker mb-2">
+                            <span className="text-3xl align-top">CA$</span>
+                            <span className="text-5xl">21,404</span>
+                            <span className="text-3xl align-top">.74</span>
+                        </div>
+                        <div className="text-green-light text-sm">
+                            &uarr; CA$12,955.35 (154.16%)
+                        </div>
+                    </div>
                     <div className="flex-grow flex-no-shrink py-6">
                         <div className="text-grey-darker mb-2">
                             <span className="text-3xl align-top">CA$</span>
