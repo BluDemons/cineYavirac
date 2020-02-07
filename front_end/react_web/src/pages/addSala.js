@@ -57,10 +57,9 @@ class AddSala extends Component {
       <div>
         <Sidebar />
         <Header />
-        <div className="md:ml-64 xl:ml-64 sm:ml-6 pt-6 pb-8">
-        <h1 className="md:ml-64 xl:ml-64 text-xl sm:ml-6 pt-6 pb-8">Salas</h1>
-          <div className="leading-loose">
-            <form className=" ml-64 max-w-xl m-4 p-10 bg-white rounded shadow-xl">
+        <div className="md:ml-64 xl:ml-64 sm:ml-0 pt-6 pb-8">
+          <div className=" md:left-0 leading-loose">
+            <form className="md:mr-0 m-4 p-10 bg-white rounded shadow-xl">
               <p className="text-gray-800 font-medium">Customer information</p>
               <div className="">
                 <label className="block text-sm text-gray-600" htmlFor="cus_name">

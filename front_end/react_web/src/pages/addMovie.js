@@ -58,8 +58,8 @@ class AddMovie extends Component {
         <Sidebar />
         <Header />
         <div className="md:ml-64 xl:ml-64 sm:ml-6 pt-6 pb-8">
-          <div className="leading-loose">
-            <form className=" ml-64 max-w-xl m-4 p-10 bg-white rounded shadow-xl">
+          <div className="md:left-0 leading-loose">
+            <form className="md:mr-0 m-4 p-10 bg-white rounded shadow-xl">
               <p className="text-gray-800 font-medium">Customer information</p>
               <div className="">
                 <label className="block text-sm text-gray-600" htmlFor="cus_name">
@@ -84,7 +84,7 @@ class AddMovie extends Component {
                   id="cus_email"
                   name="cus_email"
                   type="text-area"
-                  required=""
+                  required={true}
                   placeholder="Añade un resumen"
                   aria-label="Email"
                 />
@@ -97,7 +97,7 @@ class AddMovie extends Component {
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
                   name="cus_name"
                   type="select"
-                  required="true"
+                  required={true}
                   placeholder="Selecciona una categoría"
                   aria-label="categoria"
                 />
@@ -109,7 +109,7 @@ class AddMovie extends Component {
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
                   type="number"
-                  required="true"
+                  required={true}
                   placeholder="Añade un precio"
                   aria-label="precio"
                 />
