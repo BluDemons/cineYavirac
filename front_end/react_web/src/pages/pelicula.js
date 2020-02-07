@@ -6,7 +6,7 @@ import axios from "axios";
 import fondo from "../assets/fondo.jpg";
 import { Link } from "react-router-dom";
 
-const API = "http://localhost:8001/server/library";
+const API = "http://localhost:3000/server/library";
 
 class Movie extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class Movie extends Component {
 
   saveData = e => {
     e.preventDefault();
-    this.post = {
+    this.get = {
       tabla: "pelicula",
       datos: {
         pelicula_nombre: this.state.pelicula_nombre,
@@ -37,7 +37,7 @@ class Movie extends Component {
       }
     };
 
-    console.log(JSON.stringify(this.post.datos.estado_libro_id));
+    console.log(JSON.stringify(this.get.datos.estado_pelicula_id));
 
     if (
       this.post.datos.pelicula_nombre === "" ||
@@ -49,7 +49,7 @@ class Movie extends Component {
       alert("Complete todos los datos para continuar...");
     } else {
       axios
-        .post(API, this.post)
+        .get(API, this.post)
         .then(response => {
           if (response.data.ok === true) {
             alert("Agregado exitosamente");

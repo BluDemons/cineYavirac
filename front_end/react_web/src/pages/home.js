@@ -8,54 +8,7 @@ const Inicio =()=>{
         <Sidebar />
         <Header />
         <div className="md:ml-64 xl:ml-64 sm:ml-6 pt-6 pb-8">
-            <div className="mt-12 bg-white border-t overflow-x-scroll border-b sm:border-l sm:border-r sm:rounded shadow mb-6">
-                <div className="border-b px-6">
-                    <div className=" justify-between -mb-px">
-                        <div className="flex-grow lg:hidden text-blue py-4 text-lg">
-                            Price Charts
-                        </div>
-                        <div className="hidden lg:flex">
-                            <button type="button"
-                                className="appearance-none py-4 text-blue-dark border-b border-blue-dark mr-6">
-                                Bitcoin &middot; CA$21,404.74
-                            </button>
-                            <button type="button"
-                                className="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mr-6">
-                                Ethereum &middot; CA$884.80
-                            </button>
-                            <button type="button"
-                                className="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark">
-                                Litecoin &middot; CA$358.24
-                            </button>
-                        </div>
-                        <div className="flex text-sm">
-                            <button type="button"
-                                className="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mr-3">
-                                1M
-                            </button>
-                            <button type="button"
-                                className="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mr-3">
-                                1D
-                            </button>
-                            <button type="button"
-                                className="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mr-3">
-                                1W
-                            </button>
-                            <button type="button"
-                                className="appearance-none py-4 text-blue-dark border-b border-blue-dark mr-3">
-                                1M
-                            </button>
-                            <button type="button"
-                                className="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mr-3">
-                                1Y
-                            </button>
-                            <button type="button"
-                                className="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark">
-                                ALL
-                            </button>
-                        </div>
-                    </div>
-                </div>
+            <div className="mt-12 bg-white border-t overflow-x-scroll border-b sm:border-l sm:border-r sm:rounded shadow mb-6">                
                 <div className="flex bg-scroll items-center px-6 lg:hidden">
                     <div className="flex-grow flex-no-shrink py-6">
                         <div className="text-grey-darker mb-2">
