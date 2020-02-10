@@ -12,6 +12,7 @@ import AddMovie from './pages/addMovie';
 import AddSala from './pages/addSala';
 import Page404 from './pages/Page404';
 import Resgistro from './pages/registro';
+import grafica from './pages/grafica';
 
 ReactDOM.render(
     <Router>
@@ -23,6 +24,7 @@ ReactDOM.render(
             <Route path="/gestion_peliculas" component={ AddMovie } />
             <Route path="/salas" component={ Sala } />
             <Route path="/gestion_salas" component={ AddSala } />
+            <Route path="/grafica" component={ grafica } />
             <Route component={ Page404 } />
         </Switch>
     </Router>,

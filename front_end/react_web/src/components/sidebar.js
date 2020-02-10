@@ -12,7 +12,7 @@ const Sidebar = () => (
                 <ul className="md:flex-col md:min-w-full flex flex-col list-none">
                     <li className="items-center">
                         <Link to="/home">                
-                            <span className="cursor-pointer px-2 py-1 hover:bg-gray-800 hover:text-gray-300 rounded block mb-5">
+                            <span className="cursor-pointer px-2 py-1 active:bg-gray-600 hover:bg-gray-800 hover:text-gray-300 rounded block mb-5">
                             <i className="fas fa-home mr-2 "></i>                            
                             <span className="mx-2">Inicio</span>
                             </span>
@@ -26,7 +26,7 @@ const Sidebar = () => (
                     </li>
                     <li className="items-center">
                         <Link to="/salas">                
-                            <span className="cursor-pointer px-2 py-1 hover:bg-gray-800 hover:text-gray-300 rounded block mb-5">
+                            <span className="cursor-pointer px-2 py-1 active:bg-gray-600 hover:bg-gray-800 hover:text-gray-300 rounded block mb-5">
                             <i className="fas fa-door-open"/>         
                             <span className="mx-2">Gesionar Salas</span>
                             </span>
@@ -34,7 +34,7 @@ const Sidebar = () => (
                     </li> 
                     <li className="items-center">
                         <Link to="/peliculas">                
-                            <span className="cursor-pointer px-2 py-1 hover:bg-gray-800 hover:text-gray-300 rounded block mb-5">
+                            <span className="cursor-pointer px-2 py-1 active:bg-gray-600 hover:bg-gray-800 hover:text-gray-300 rounded block mb-5">
                             <i className="fas fa-film"/>                         
                             <span className="mx-2">Gestionar Películas</span>
                             </span>

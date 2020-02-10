@@ -4,14 +4,14 @@ import Header from "../components/header";
 import {Link} from "react-router-dom";
 import axios from "axios";
 
-const API = "http://localhost:3000/server/sala";
+const API = "http://localhost:5000/cine/sala";
 
 class AddSala extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sala_nombre: "",
-      sala_descripcion: ""
+      nombre: '',
+      descripcion: ''
     };
   }
 
@@ -22,27 +22,25 @@ class AddSala extends Component {
   saveData = e => {
     e.preventDefault();
     this.post = {
-      tabla: "pelicula",
       datos: {
-        sala_nombre: this.state.sala_nombre,
-        sala_descripcion: this.state.sala_descripcion
+        nombre: this.state.nombre,
+        descripcion: this.state.descripcion
       }
     };
 
     console.log(JSON.stringify(this.post.datos.estado_libro_id));
 
     if (
-      this.post.datos.sala_nombre === "" ||
-      this.post.datos.sala_descripcion === ""
+      this.post.datos.nombre === "" ||
+      this.post.datos.descripcion === ""
     ) {
-      alert("Complete todos los datos para continuar...");
+      alert("Complete todos los campos para continuar...");
     } else {
-      axios
-        .post(API, this.post)
+      axios.post(API, this.post)
         .then(response => {
           if (response.data.ok === true) {
             alert("Agregado exitosamente");
-            window.location.assign("http://localhost:3000/add_movie");
+            window.location.assign("http://localhost:3000/salas");
           }
         })
         .catch(error => {
@@ -52,41 +50,43 @@ class AddSala extends Component {
   };
 
   render() {
-    const { sala_nombre, sala_descripcion } = this.state;
+    const { nombre, descripcion } = this.state;
     return (
       <div>
         <Sidebar />
         <Header />
         <div className="md:ml-64 xl:ml-64 sm:ml-0 pt-6 pb-8">
           <div className=" md:left-0 leading-loose">
-            <form className="md:mr-0 m-4 p-10 bg-white rounded shadow-xl">
+            <form className="md:mr-0 m-4 p-10 bg-white rounded shadow-xl" onSubmit={this.saveData}>
               <p className="text-gray-800 font-medium">Customer information</p>
               <div className="">
-                <label className="block text-sm text-gray-600" htmlFor="cus_name">
+                <label className="block text-sm text-gray-600" htmlFor="nombre">
                   Nombre
                 </label>
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
-                  id="cus_name"
-                  name="cus_name"
+                  id="nombre"
+                  name="nombre"
                   type="text"
                   required={true}
+                  value={nombre}
                   placeholder="Añade un nombre"
-                  aria-label="Name"
+                  onChange={ this.changeHandler } 
                 />
               </div>
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="cus_email">
+                <label className="block text-sm text-gray-600" htmlFor="descripcion">
                   Descripción
                 </label>
                 <input
                   className="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded"
-                  id="cus_email"
-                  name="cus_email"
+                  id="descripcion"
+                  name="descripcion"
                   type="text-area"
                   required={true}
+                  value={descripcion}
                   placeholder="Añade una descripción"
-                  aria-label="Email"
+                  onChange={ this.changeHandler } 
                 />
               </div>                                          
               <div className="mt-4 flex justify-between">                
@@ -98,7 +98,6 @@ class AddSala extends Component {
                     <span>Cancelar</span>
                   </button>
                 </Link>
-                <Link to="/salas">
                   <button
                     className=" mx-auto bg-white text-gray-800 font-bold rounded border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-2 px-4 inline-flex items-center"
                     type="submit"
@@ -106,7 +105,6 @@ class AddSala extends Component {
                     <span className="mr-2">Guardar</span>
                     <i className="far fa-check-circle" />
                   </button>
-                </Link>
               </div>
             </form>
           </div>
