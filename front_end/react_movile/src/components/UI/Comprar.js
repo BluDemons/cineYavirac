@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Text, View, StyleSheet, TextInput, Button, Alert,TouchableHighlight } from 'react-native';
 import {Link} from 'react-router-native';
 import { useForm, Controller } from 'react-hook-form';
 
-export default () => {
-  const { register, setValue, control, handleSubmit } = useForm({defaultValues: {
+export default class BuyTickets extends Component{
+  render(){
+    const { register, setValue, control, handleSubmit } = useForm({defaultValues: {
       test: [{ name: "test1" }, { name: "test2" }, { name: "test3" }]
     }});
   const onSubmit = data => {
@@ -50,6 +51,7 @@ export default () => {
           </View>
     </View>
   );
+  }
 };
 
 const styles = StyleSheet.create({

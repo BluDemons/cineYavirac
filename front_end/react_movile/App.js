@@ -4,12 +4,12 @@ import { AppRegistry, View } from 'react-native';
 import Login from './src/components/UI/Login';
 import Route from './routes';
 
-class reactTutorialApp extends Component {
+class App extends Component {
    render() {
       return (
          <Route />
       )
    }
 }
-export default reactTutorialApp
+export default App
 //AppRegistry.registerComponent('reactTutorialApp', () => reactTutorialApp)

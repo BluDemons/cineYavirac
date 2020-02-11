@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NativeRouter, Switch, Route } from "react-router-native";
 
-import MovieDetail from './src/components/UI/Movie_Detalle';
+import MovieDatail from './src/components/UI/Movie_Detalle';
 import BuyTickets from './src/components/UI/Comprar';
 import Cartelera from './src/components/UI/Cartelera';
 //import SendTickets from './src/pages/send_tickets';
@@ -14,7 +14,7 @@ export default class App extends Component {
         <View style={styles.container}>
           <Switch>
             <Route exact path="/" component={ Cartelera } />
-            <Route exact path="/detalle" component={ MovieDetail } />
+            <Route exact path="/detalle" component={ MovieDatail } />
             <Route exact path="/tickets" component={ BuyTickets } />
           </Switch>
         </View>

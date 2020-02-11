@@ -79,7 +79,7 @@ class AddSalaPelicula extends Component {
           }
         })
         .catch(error => {
-          alert(error);
+          console.log(error);
         });
     }
   };
@@ -125,8 +125,7 @@ class AddSalaPelicula extends Component {
                   </option>
                   {peliculas.map(element => (
                     <option key={element.id}>
-                      {" "}
-                      {element.id + " - " + element.titulo}{" "}
+                      {element.id}
                     </option>
                   ))}
                 </select>
@@ -150,8 +149,7 @@ class AddSalaPelicula extends Component {
                   </option>
                   {horarios.map(element => (
                     <option key={element.id}>
-                      {" "}
-                      {element.id + " - " + element.hora}{" "}
+                      {element.id}
                     </option>
                   ))}
                 </select>
@@ -172,8 +170,7 @@ class AddSalaPelicula extends Component {
                   </option>
                   {salas.map(element => (
                     <option key={element.id}>
-                      {" "}
-                      {element.id + " - " + element.nombre}{" "}
+                      {element.id}
                     </option>
                   ))}
                 </select>
