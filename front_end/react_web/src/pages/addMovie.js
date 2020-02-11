@@ -137,6 +137,8 @@ class AddMovie extends Component {
                   <option>Comedia</option>
                   <option>Drama</option>
                   <option>Animadas</option>
+                  <option>Acción</option>
+                  <option>Ánime</option>
                 </select>
               </div>
               <div className="inline-block mt-2 w-1/2 pr-1">

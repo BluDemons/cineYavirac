@@ -13,6 +13,11 @@ import AddSala from './pages/addSala';
 import Page404 from './pages/Page404';
 import Resgistro from './pages/registro';
 import grafica from './pages/grafica';
+import horario from './pages/horario';
+import AddHorario from './pages/addHorario';
+import SalaPelicula from './pages/SalaPeliculas';
+import AddSalaPelicula from './pages/addSalaPelicula';
+
 
 ReactDOM.render(
     <Router>
@@ -25,6 +30,10 @@ ReactDOM.render(
             <Route path="/salas" component={ Sala } />
             <Route path="/gestion_salas" component={ AddSala } />
             <Route path="/grafica" component={ grafica } />
+            <Route path="/horarios" component={ horario } />
+            <Route path="/gestion_horario" component={ AddHorario } />
+            <Route path="/sala_pelicula" component={ SalaPelicula } />
+            <Route path="/asignar_pelicula" component={ AddSalaPelicula } />
             <Route component={ Page404 } />
         </Switch>
     </Router>,

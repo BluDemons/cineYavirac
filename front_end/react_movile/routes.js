@@ -1,14 +1,33 @@
-import React from 'react'
-import { Router, Scene } from 'react-native-router-flux'
-import Menu from './src/components/UI/Home'
-import Pedido from './src/components/UI/Pedidos'
+import React, { Component } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { NativeRouter, Switch, Route } from "react-router-native";
 
-const Routes = () => (
-   <Router>
-      <Scene key = "root">
-         <Scene key = "menu" component = {Menu} title = "Menu" initial = {true} />
-         <Scene key = "pedido" component = {Pedido} title = "Pedido" />
-      </Scene>
-   </Router>
-)
-export default Routes
+import MovieDetail from './src/components/UI/Movie_Detalle';
+import BuyTickets from './src/components/UI/Comprar';
+import Cartelera from './src/components/UI/Cartelera';
+//import SendTickets from './src/pages/send_tickets';
+
+export default class App extends Component {   
+   render() {   
+    return (
+      <NativeRouter>
+        <View style={styles.container}>
+          <Switch>
+            <Route exact path="/" component={ Cartelera } />
+            <Route exact path="/detalle" component={ MovieDetail } />
+            <Route exact path="/tickets" component={ BuyTickets } />
+          </Switch>
+        </View>
+      </NativeRouter>
+    )
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
