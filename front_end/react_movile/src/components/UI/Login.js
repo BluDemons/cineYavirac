@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const imgbg = require('../../assets/hamburger-895831_1280.jpg');
 
-const API_URL = "http://192.168.1.7:3000/api/login";  //CAMBIAR DEPENDIENDO IP DE SU MAQUINA
+const API_URL = "http://172.16.11.112:5000/cine/login";  //CAMBIAR DEPENDIENDO IP DE SU MAQUINA
 
 export default class LoginScreen extends Component {
   constructor(props){

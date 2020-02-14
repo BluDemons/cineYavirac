@@ -5,6 +5,7 @@ import { NativeRouter, Switch, Route } from "react-router-native";
 import MovieDatail from './src/components/UI/Movie_Detalle';
 import BuyTickets from './src/components/UI/Comprar';
 import Cartelera from './src/components/UI/Cartelera';
+import LoginScreen from './src/components/UI/Login';
 //import SendTickets from './src/pages/send_tickets';
 
 export default class App extends Component {   
@@ -13,7 +14,7 @@ export default class App extends Component {
       <NativeRouter>
         <View style={styles.container}>
           <Switch>
-            <Route exact path="/" component={ Cartelera } />
+            <Route exact path="/" component={ LoginScreen } />
             <Route exact path="/detalle" component={ MovieDatail } />
             <Route exact path="/tickets" component={ BuyTickets } />
           </Switch>

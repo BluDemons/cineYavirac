@@ -1,7 +1,7 @@
 const SalaMovie = require('../models/sala_pelicula');
 
 const getData = (req, res) => {
-    const { query } = req;
+    const { query } =('select peliculas.titulo,salas.descripcion,horarios.hora from sala_peliculas join peliculas on peliculas.id=idpelicula join salas on salas.id=idsala join horarios on horarios.id=idhorario');
     SalaMovie.findAll({ query })
     .then( response => {
         return res.status(200).json({

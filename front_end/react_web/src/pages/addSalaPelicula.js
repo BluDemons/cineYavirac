@@ -71,11 +71,12 @@ class AddSalaPelicula extends Component {
     ) {
       alert("Complete todos los campos para continuar...");
     } else {
-        axios.post(API_URL+"sala_movie", this.post)
+      axios
+        .post(API_URL + "sala_movie", this.post)
         .then(response => {
           if (response.data.ok === true) {
             alert("Agregado exitosamente");
-            window.location.assign("http://localhost:3000/sala_pelicula");
+            window.location.assign("http://localhost:3000/home");
           }
         })
         .catch(error => {
@@ -124,9 +125,7 @@ class AddSalaPelicula extends Component {
                     Seleccione pelicula....
                   </option>
                   {peliculas.map(element => (
-                    <option key={element.id}>
-                      {element.id}
-                    </option>
+                    <option key={element.id} value={element.id}>{" "}{element.titulo}{" "}</option>
                   ))}
                 </select>
               </div>
@@ -148,9 +147,7 @@ class AddSalaPelicula extends Component {
                     Seleccione horario....
                   </option>
                   {horarios.map(element => (
-                    <option key={element.id}>
-                      {element.id}
-                    </option>
+                    <option key={element.id} value={element.id}>{" "}{element.hora}{" "}</option>
                   ))}
                 </select>
               </div>
@@ -169,14 +166,15 @@ class AddSalaPelicula extends Component {
                     Seleccione salas....
                   </option>
                   {salas.map(element => (
-                    <option key={element.id}>
-                      {element.id}
+                    <option key={element.id} value={element.id}>
+                      {" "}
+                      {element.nombre}{" "}
                     </option>
                   ))}
                 </select>
-              </div>              
+              </div>
               <div className="mt-4 flex justify-between">
-                <Link to="/sala_pelicula">
+                <Link to="/home">
                   <button className=" mx-auto bg-white text-gray-800 font-bold rounded border-b-2 border-red-500 hover:border-red-600 hover:bg-red-500 hover:text-white shadow-md py-2 px-2 inline-flex items-center">
                     <i className="far fa-times-circle mr-2" />
                     <span>Cancelar</span>

@@ -9,7 +9,7 @@ const Header = () => (
             <div>
                 <Link to="/">
                     <button className="bg-white text-gray-800 font-bold rounded border-b-2 border-red-500 hover:border-red-600 hover:bg-red-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center">
-                        <span className="mr-2">Logout</span>
+                        <span className="mr-2">Cerrar Sesión</span>
                         <i className="far fa-arrow-alt-circle-left"/>
                     </button>
                 </Link>

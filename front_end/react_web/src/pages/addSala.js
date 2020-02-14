@@ -28,7 +28,7 @@ class AddSala extends Component {
       }
     };
 
-    console.log(JSON.stringify(this.post.datos.estado_libro_id));
+    console.log(JSON.stringify(this.post.datos));
 
     if (
       this.post.datos.nombre === "" ||

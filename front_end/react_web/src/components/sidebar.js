@@ -82,14 +82,6 @@ class Sidebar extends Component {
                   </span>
                 </Link>
               </li>
-              <li className="items-center">
-                <Link to="/sala_pelicula">
-                  <span className="cursor-pointer px-2 py-1 active:bg-gray-600 hover:bg-gray-800 hover:text-gray-300 rounded block mb-5">
-                    <i className="fas fa-clock" />
-                    <span className="mx-2">Asignación de Películas</span>
-                  </span>
-                </Link>
-              </li>
             </ul>
           </div>
           {/* <div className="text-green-500">

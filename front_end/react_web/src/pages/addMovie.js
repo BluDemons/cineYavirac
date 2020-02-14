@@ -17,16 +17,26 @@ class AddMovie extends Component {
       imagen: '',
       estado: true
     };
-    this.handleChange = this.handleChange.bind(this);
+    //this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(selectorFiles: FileList) {
-    console.log(selectorFiles);
-  }
+  // handleChange(selectorFiles: FileList) {
+  //   console.log(selectorFiles);
+  // }
 
   changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
+  encodeImageFileAsURL= (e) => {
+    const reader = new FileReader();
+    const file = new Blob([this.setState({ [e.target.data]: e.target.value })], {type: 'text/plain'});
+    reader.onloadend = e => {
+      console.log( e.target.result)
+      return( e.target.result)
+    }
+    reader.readAsDataURL(file);
+  }
 
   saveData = e => {
     e.preventDefault();
@@ -79,7 +89,7 @@ class AddMovie extends Component {
         <Header />
         <div className="md:ml-64 xl:ml-64 sm:ml-6 pt-6 pb-8">
           <div className="md:left-0 leading-loose">
-            <form className="md:mr-0 m-4 p-10 bg-white rounded shadow-xl" onSubmit={ this.saveData }>
+            <form className="md:mr-0 m-4 p-10 bg-white rounded shadow-xl" onSubmit={ this.saveData}>
               <p className="text-gray-800 font-medium">Peliculas</p>
               <div className="">
                 <label
@@ -166,8 +176,8 @@ class AddMovie extends Component {
                   name="imagen"
                   type="file"
                   required={true}
-                  value={imagen}
-                  onChange={ this.changeHandler } 
+                  defaultValue={imagen}
+                  onChange={ this.encodeImageFileAsURL  } 
                 />
               </div>
               <div className="mt-4 flex justify-between">

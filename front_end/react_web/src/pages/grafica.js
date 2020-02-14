@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import FusionCharts from "fusioncharts";
 import charts from "fusioncharts/fusioncharts.charts";
 import ReactFusioncharts from "react-fusioncharts";
-import axios from 'axios';
+//import axios from 'axios';
 
-const API = "http://10.143.90.222:5000/cine/movie";
+//const API = "http://10.143.90.222:5000/cine/movie";
 
 
 // Resolves charts dependancy
@@ -18,13 +18,13 @@ export default class Grafica extends Component {
     };
 }
   render() {
-    const {peliculas} = this.state;
+    //const {peliculas} = this.state;
     const datos = {
       chart: {
         caption: "Porcentaje de Ventas",
-        subcaption: "For all users in 2017",
+        subcaption: "Películas más aceptadas por los usuario",
         showpercentvalues: "1",
-        defaultcenterlabel: "Android Distribution",
+        defaultcenterlabel: "Peliculas",
         aligncaptionwithcanvas: "0",
         captionpadding: "0",
         decimals: "1",
