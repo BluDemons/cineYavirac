@@ -4,7 +4,7 @@ import charts from "fusioncharts/fusioncharts.charts";
 import ReactFusioncharts from "react-fusioncharts";
 import axios from "axios";
 
-const API = "http://localhost:5000/cine/raw4";
+const API = "http://localhost:5000/cine/query4";
 
 // Resolves charts dependancy
 charts(FusionCharts);

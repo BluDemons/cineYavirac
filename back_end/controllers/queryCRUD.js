@@ -1,6 +1,6 @@
 const db = require("../config/db");
 
-const raw1 = (req, res) => {
+const query1 = (req, res) => {
     const pelicula = req.query.pelicula
     const horario = req.query.horario
 
@@ -20,26 +20,19 @@ const raw1 = (req, res) => {
     })
 }
 
-const raw2 = (req, res) => {
+const query2 = (req, res) => {
     const idpelicula = req.query.idpelicula
 
-    db.sequelize.query(`select id, idpelicula, (select c_pelicula(idpelicula)) as idpelicula_titulo, idsala, (select c_sala(idsala)) as idsala_nombre, idhorario, (select c_horario(idhorario)) as idhorario_hora from sala_peliculas where idpelicula=${ idpelicula };`, { type: db.sequelize.QueryTypes.SELECT})
+    db.sequelize.query(`select id, idpelicula, (select c_pelicula(idpelicula)) as idpelicula_titulo, idsala, (select c_sala(idsala)) as idsala_nombre, idhorario, (select c_horario(idhorario)) as idhorario_hora from sala_peliculas where idpelicula=${idpelicula};`, { type: db.sequelize.QueryTypes.SELECT})
     .then(response => {
         return res.status(200).json({
                 ok: true,
                 datos: response
             })
-        .catch(error => {
-            return response.status(500).json({
-                ok: false,
-                datos: null,
-                mensaje: `Error del servidor: ${ error }`
-            })
-        })
     })
 }
 
-const raw3 = (req, res) => {
+const query3 = (req, res) => {
     db.sequelize.query(`select id, idpelicula, (select c_pelicula(idpelicula)) as idpelicula_titulo, idsala, (select c_sala(idsala)) as idsala_nombre, idhorario, (select c_horario(idhorario)) as idhorario_hora from sala_peliculas;`, { type: db.sequelize.QueryTypes.SELECT})
     .then(response => {
         return res.status(200).json({
@@ -56,7 +49,7 @@ const raw3 = (req, res) => {
     })
 }
 
-const raw4 = (req, res) => {
+const query4 = (req, res) => {
     db.sequelize.query(`select peliculas.titulo as label, peliculas.valorBoleto, sum(compras.numero_boletos) as value from compras join sala_peliculas on sala_peliculas.id = compras.idsala_peliculas join peliculas on peliculas.id = sala_peliculas.idpelicula group by peliculas.titulo, peliculas.valorBoleto;`, { type: db.sequelize.QueryTypes.SELECT})
     .then(response => {
         return res.status(200).json({
@@ -73,8 +66,8 @@ const raw4 = (req, res) => {
     })
 }
 
-const raw =(req,res)=>{
-    db.sequelize.query(`select peliculas.titulo as titulo,numero_boletos from compras join sala_peliculas on sala_peliculas.id = compras.idsala_peliculas join peliculas on peliculas.id = sala_peliculas.idpelicula group by peliculas.titulo, compras.numero_boletos;`, { type: db.sequelize.QueryTypes.SELECT})
+const query =(req,res)=>{
+    db.sequelize.query(`select peliculas.titulo as titulo,peliculas.valorBoleto as precio,sum(peliculas.valorBoleto*compras.numero_boletos) as total, sum(compras.numero_boletos) as cantidad from compras join sala_peliculas on sala_peliculas.id = compras.idsala_peliculas join peliculas on peliculas.id = sala_peliculas.idpelicula group by peliculas.titulo;`, { type: db.sequelize.QueryTypes.SELECT})
     .then(response => {
         return res.status(200).json({
                 ok: true,
@@ -91,9 +84,9 @@ const raw =(req,res)=>{
 }
 
 module.exports = {
-    raw1,
-    raw2,
-    raw3,
-    raw4,
-    raw
+    query,
+    query1,
+    query2,
+    query3,
+    query4
 }

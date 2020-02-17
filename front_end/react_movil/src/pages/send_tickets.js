@@ -13,17 +13,17 @@ import { Card } from "react-native-elements";
 import { Link } from "react-router-native";
 import axios from "axios";
 
-const API = "http://192.168.43.183:5000/cine/";
+const API = "http://localhost:5000/cine/";
 
 export default class SendTickets extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      correo: '',
-      sala: '',
-      pelicula: '',
-      horario: '',
-      boletos: ''
+      correo: "",
+      sala: "",
+      pelicula: "",
+      horario: "",
+      boletos: ""
     };
   }
 
@@ -49,16 +49,16 @@ export default class SendTickets extends Component {
       this.post.datos.horario === "" ||
       this.post.datos.boletos === ""
     ) {
-      Alert.alert("Complete todos los datos para continuar...");
+      alert("Complete todos los datos para continuar...");
     } else {
       axios.post(API + "send_mail", this.post)
         .then(response => {
           if (response.data.ok === true) {
-            Alert.alert("Correo Enviado!");
+            alert("Correo Enviado!");
           }
         })
         .catch(error => {
-          Alert.alert(error);
+          alert(error);
         });
     }
   };

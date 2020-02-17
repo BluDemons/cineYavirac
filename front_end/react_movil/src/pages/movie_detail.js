@@ -41,7 +41,7 @@ export default class MovieDetail extends Component {
       });
 
     axios
-      .get(`${API}raw2?idpelicula=${this.state.idpelicula}`)
+      .get(`${API}query2?idpelicula=${this.state.idpelicula}`)
       .then(response => {
         this.setState({ sala_peliculas: response.data.datos });
       })
@@ -52,7 +52,7 @@ export default class MovieDetail extends Component {
 
   _onRefresh = () => {
     axios
-      .get(`${API}raw2?idpelicula=${this.state.idpelicula}`)
+      .get(`${API}query2?idpelicula=${this.state.idpelicula}`)
       .then(response => {
         this.setState({ sala_peliculas: response.data.datos });
       })
@@ -63,7 +63,7 @@ export default class MovieDetail extends Component {
 
   handleRefresh = () => {
     this.setState(
-      { page: 1, refreshing: true, seed: this.state.seed + 1 },
+      { refreshing: true},
       () => {
         this.getData();
       }
@@ -147,7 +147,7 @@ export default class MovieDetail extends Component {
                 refreshControl={
                   <RefreshControl
                     refreshing={this.state.refreshing}
-                    onRefresh={this._onRefresh()}
+                    onRefresh={this.handleRefresh()}
                   />
                 }
               >

@@ -151,7 +151,7 @@ export default class BuyTickets extends Component {
           </ScrollView>
           <TouchableHighlight>
             <Link
-              to="/movie_detail"
+              to="/"
               style={styles.button}
               onPress={() => this.asyncstorageClear()}
             >

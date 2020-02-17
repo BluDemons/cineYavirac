@@ -5,7 +5,7 @@ import Header from "../components/header";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const API = "http://localhost:5000/film/raw3";
+const API = "http://localhost:5000/film/query3";
 
 class SalaMovie extends Component {
   constructor(props) {

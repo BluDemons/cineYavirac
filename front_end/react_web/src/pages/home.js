@@ -10,29 +10,28 @@ const API = "http://localhost:5000/cine/";
 
 class Inicio extends Component {
 
-  handleOpenModal (id) { this.setState({ showModal: true, test: id }) }
-  handleCloseModal () { this.setState({ showModal: false }) }
-
   constructor(props) {
     super(props);
     this.state = {
       table_header: {
         pelicula: "Película",
-        boletos: "# de Boletos"
+        precio:"Precio Unitario",
+        boletos: "# de Boletos",
+        total:"Total Recaudado"
       },
       sala_movie: [],
       compras:[],
       pelicula: "",
-      boletos: ""
+      precio:"",
+      boletos: "",
+      total:""
     };
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
   componentDidMount() {
     //traer cartelera del API
     axios
-      .get(API + "raw3")
+      .get(API + "query3")
       .then(response => {
         this.setState({ sala_movie: response.data.datos });
       })
@@ -41,7 +40,7 @@ class Inicio extends Component {
       });
     //traer compras del API
     axios
-      .get(API + "raw")
+      .get(API + "query")
       .then(response => {
         this.setState({ compras: response.data.datos });
       })
@@ -185,7 +184,13 @@ class Inicio extends Component {
                               {this.state.table_header.pelicula}
                             </th>
                             <th className="text-left p-3 px-5">
+                              {this.state.table_header.precio}
+                            </th>
+                            <th className="text-left p-3 px-5">
                               {this.state.table_header.boletos}
+                            </th>
+                            <th className="text-left p-3 px-5">
+                              {this.state.table_header.total}
                             </th>
                             <th></th>
                           </tr>
@@ -203,8 +208,24 @@ class Inicio extends Component {
                             <td>
                               {compras.map(element => (
                                 <p className="p-2 px-5 text-center" key={element.id}>
+                                  {"$"}
+                                  {element.precio}{" "}
+                                </p>
+                              ))}
+                            </td> 
+                            <td>
+                              {compras.map(element => (
+                                <p className="p-2 px-5 text-center" key={element.id}>
                                   {" "}
-                                  {element.numero_boletos}{" "}
+                                  {element.cantidad}{" "}
+                                </p>
+                              ))}
+                            </td>                            
+                            <td>
+                              {compras.map(element => (
+                                <p className="p-2 px-5 text-center" key={element.id}>
+                                  {" "}
+                                  {element.total}{" "}
                                 </p>
                               ))}
                             </td>
@@ -222,18 +243,6 @@ class Inicio extends Component {
                                 </p>
                               ))}
                             </td> */}
-                            <td>
-                              {compras.map(element => (
-                                <p className="p-2 px-5" key={element.id}>
-                                  <button
-                                    onClick={() => this.deleteDataReporte(element.id)}
-                                    className="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
-                                  >
-                                    Eliminar
-                                  </button>
-                                </p>
-                              ))}
-                            </td>
                           </tr>
                         </tbody>
                       </table>

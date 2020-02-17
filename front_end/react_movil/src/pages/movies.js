@@ -19,7 +19,8 @@ export default class Movies extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      peliculas: []
+      peliculas: [],
+      refreshed: true
     };
   }
 
@@ -54,7 +55,7 @@ export default class Movies extends Component {
             <Text style={styles.header}> CARTELERA </Text>
           </View>
 
-          <ScrollView vertical={true}>
+          <ScrollView vertical={true} refreshControl={this.state.refreshed}>
             {peliculas.map(element => (
               <Link
                 to="/movie_detail"
@@ -71,6 +72,15 @@ export default class Movies extends Component {
                     }}
                   >
                     {element.titulo}
+                  </Text>
+                  <Text style={{ marginBottom: 10 }}>
+                    Resumen: {element.resumen}
+                  </Text>
+                  <Text style={{ marginBottom: 10 }}>
+                    Categoría: {element.categoria}
+                  </Text>
+                  <Text style={{ marginBottom: 10 }}>
+                    Valor de Boleto: {element.valorBoleto}
                   </Text>
                 </Card>
               </Link>
