@@ -20,7 +20,7 @@ module.exports = db.sequelize.define('compra', {
       key: 'id'
     }
   },
-  idsala: {
+  idsala_peliculas: {
     type: Sequelize.INTEGER,
     references: {
       model: sala,

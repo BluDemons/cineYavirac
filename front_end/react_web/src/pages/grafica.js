@@ -2,10 +2,9 @@ import React, { Component } from "react";
 import FusionCharts from "fusioncharts";
 import charts from "fusioncharts/fusioncharts.charts";
 import ReactFusioncharts from "react-fusioncharts";
-//import axios from 'axios';
+import axios from "axios";
 
-//const API = "http://10.143.90.222:5000/cine/movie";
-
+const API = "http://192.168.0.112:5000/cine/raw4";
 
 // Resolves charts dependancy
 charts(FusionCharts);
@@ -14,9 +13,20 @@ export default class Grafica extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        peliculas: [],
+      reporte: []
     };
-}
+  }
+
+  componentDidMount() {
+    axios
+      .get(API)
+      .then(response => {
+        this.setState({ reporte: response.data.datos });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
   render() {
     //const {peliculas} = this.state;
     const datos = {
@@ -28,28 +38,22 @@ export default class Grafica extends Component {
         aligncaptionwithcanvas: "0",
         captionpadding: "0",
         decimals: "1",
-        plottooltext:
-          "<b>$percentValue</b> recaudado por <b>$label</b>",
+        plottooltext: "<b>$percentValue</b> recaudado por <b>$label</b>",
         centerlabel: "# Users: $value",
-        theme: "candy"
+        legendIconScale: "2",
+        theme: "fusion",
+        baseFont: "Italy",
+        baseFontSize: "15",
+        baseFontColor: "#008080",
       },
-      data: [{
-        label:'Lolipop',
-        value:'5300'
-      },{
-        label:'Candy',
-        value:'18000'
-      }      
-      ]
+      data: this.state.reporte
     };
     const chartConfigs = {
-      type: 'pie2d',
+      type: "pie2d",
       dataSource: datos,
+      renderAt: "chart-container",
+      width:800
     };
-    return (
-      <ReactFusioncharts
-      {...chartConfigs}
-      />
-    );
+    return (<ReactFusioncharts {...chartConfigs} />);
   }
 }

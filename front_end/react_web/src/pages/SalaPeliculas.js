@@ -5,7 +5,7 @@ import Header from "../components/header";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const API = "http://localhost:5000/cine/sala_movie";
+const API = "http://localhost:5000/film/raw3";
 
 class SalaMovie extends Component {
   constructor(props) {
@@ -82,13 +82,13 @@ class SalaMovie extends Component {
                               <div className="relative text-white px-6 pb-6 mt-6">
                                 <div className=" justify-between">
                                   <span className="block font-semibold text-sm">
-                                    Sala: {element.idsala}
+                                    Sala: {element.idsala_nombre}
                                   </span>
                                   <span className="block font-semibold text-sm">
-                                    Película: {element.idpelicula}
+                                    Película: {element.idpelicula_titulo}
                                   </span>
                                   <span className="block font-semibold text-sm">
-                                    Hora: {element.idhorario}
+                                    Hora: {element.idhorario_hora}
                                   </span>
                                   <div className="flex justify-between">
                                     <Link to="/asignar_pelicula">

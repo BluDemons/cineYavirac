@@ -77,11 +77,11 @@ class Horario extends Component {
                       Horario de: {element.hora}
                     </span>
                     <div className="flex justify-between">
-                      <Link to="/gestion_horario">
+                      {/* <Link to="/gestion_horario">
                         <span className="justify-between bg-white rounded-full text-green-500 text-xs font-bold px-3 py-2 leading-none flex items-center">
                           Editar
                         </span>
-                      </Link>
+                      </Link> */}
                       <span
                         className="cursor-pointer justify-between bg-white rounded-full text-teal-500 text-xs font-bold px-3 py-2 leading-none flex items-center"
                         onClick={() => this.deleteData(element.id)}
