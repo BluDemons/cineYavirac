@@ -73,9 +73,27 @@ const raw4 = (req, res) => {
     })
 }
 
+const raw =(req,res)=>{
+    db.sequelize.query(`select peliculas.titulo as titulo,numero_boletos from compras join sala_peliculas on sala_peliculas.id = compras.idsala_peliculas join peliculas on peliculas.id = sala_peliculas.idpelicula group by peliculas.titulo, compras.numero_boletos;`, { type: db.sequelize.QueryTypes.SELECT})
+    .then(response => {
+        return res.status(200).json({
+                ok: true,
+                datos: response
+            })
+        .catch((error) => {
+            return res.status(500).json({
+                ok: false,
+                datos: null,
+                mensaje: `Error del servidor: ${ error }`
+            })
+        })
+    })
+}
+
 module.exports = {
     raw1,
     raw2,
     raw3,
-    raw4
+    raw4,
+    raw
 }

@@ -13,7 +13,7 @@ import { Card } from "react-native-elements";
 import { Link } from "react-router-native";
 import axios from "axios";
 
-const API = "http://192.168.0.112:5000/cine/";
+const API = "http://192.168.43.183:5000/cine/";
 
 export default class SendTickets extends Component {
   constructor(props) {
@@ -110,12 +110,6 @@ export default class SendTickets extends Component {
               onChangeText={this.handleCorreo}
             />
           </Card>
-
-          {/* <TouchableHighlight>
-              <Link to="/" style={ styles.button } onPress={ () => this.asyncstorageClear() }>
-                <Text>Cartelera</Text>
-              </Link>
-            </TouchableHighlight> */}
         </View>
         <TouchableHighlight>
           <Link to="/" style={styles.button1} onPress={() => this.saveData()}>

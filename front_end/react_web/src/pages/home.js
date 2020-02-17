@@ -41,7 +41,7 @@ class Inicio extends Component {
       });
     //traer compras del API
     axios
-      .get(API + "compra")
+      .get(API + "raw")
       .then(response => {
         this.setState({ compras: response.data.datos });
       })
@@ -102,9 +102,8 @@ class Inicio extends Component {
                       <Link to="/asignar_pelicula">
                         <button
                           type="button"
-                          className="mr-8 shadow-md no-underline font-black text-2xl rounded-full h-12 w-12 flex items-center justify-center bg-blue-400 text-white text-sm border-blue btn-primary hover:text-white hover:bg-pink-500 focus:outline-none active:shadow-none"
-                        >
-                          <i className="fas fa-plus-square"></i>
+                          className="mr-8 shadow-md no-underline font-black rounded h-10 w-16 flex items-center border-b-2 border-green-500 justify-center bg-teal-400 text-white text-sm btn-primary hover:text-white hover:bg-green-500 focus:outline-none active:shadow-none"
+                        >Añadir
                         </button>
                       </Link>
                     </div>
@@ -195,15 +194,15 @@ class Inicio extends Component {
                           <tr className="border-b hover:bg-orange-100 bg-gray-100">
                             <td>
                               {compras.map(element => (
-                                <p className="p-2 px-5" key={element.id}>
+                                <p className="p-2 pr-6 text-justify" key={element.id}>
                                   {" "}
-                                  {element.idsala_peliculas}{" "}
+                                  {element.titulo}{" "}
                                 </p>
                               ))}
                             </td>
                             <td>
                               {compras.map(element => (
-                                <p className="p-2 px-5" key={element.id}>
+                                <p className="p-2 px-5 text-center" key={element.id}>
                                   {" "}
                                   {element.numero_boletos}{" "}
                                 </p>

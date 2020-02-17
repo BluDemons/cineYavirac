@@ -23,7 +23,8 @@ class Horario extends Component {
     if (!this.state.horario) {
       console.log("No hay horarios disponibles");
     } else {
-      axios.get(API)
+      axios
+        .get(API)
         .then(response => {
           this.setState({ horario: response.data.datos });
         })
@@ -49,16 +50,14 @@ class Horario extends Component {
         <Header />
         <div className="md:ml-64 xl:ml-64 sm:ml-6 pt-6 pb-8">
           <div className="justify-between flex my-0 select-none">
-            <h1 className="ml-12 text-center mr-10 text-5xl">
-              Horarios
-            </h1>
+            <h1 className="ml-12 text-center mr-10 text-5xl">Horarios</h1>
             <Link to="/gestion_horario">
-            <button
-              type="button"
-              className="mr-8 shadow-md no-underline font-black text-2xl rounded-full h-12 w-12 flex items-center justify-center bg-blue-400 text-white text-sm border-blue btn-primary hover:text-white hover:bg-pink-500 focus:outline-none active:shadow-none"
-            >
-              <i className="fas fa-plus-square"></i>
-            </button>
+              <button
+                type="button"
+                className="mr-8 shadow-md no-underline font-black rounded h-10 w-16 flex items-center border-b-2 border-green-500 justify-center bg-teal-400 text-white text-sm btn-primary hover:text-white hover:bg-green-500 focus:outline-none active:shadow-none"
+              >
+                Añadir
+              </button>
             </Link>
           </div>
           <div className="p-24 flex flex-wrap items-center justify-center">
