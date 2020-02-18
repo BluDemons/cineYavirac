@@ -15,7 +15,7 @@ import { Link } from "react-router-native";
 import { RadioButton } from "react-native-paper";
 import axios from "axios";
 
-const API = "http://192.168.43.183:5000/cine/";
+const API = "http://192.168.0.112:5000/cine/";
 
 export default class MovieDetail extends Component {
   constructor(props) {
@@ -24,7 +24,6 @@ export default class MovieDetail extends Component {
       checked: "",
       pelicula: [],
       sala_peliculas: [],
-      //
       idpelicula: "",
       refreshing: false
     };
@@ -62,12 +61,9 @@ export default class MovieDetail extends Component {
   };
 
   handleRefresh = () => {
-    this.setState(
-      { refreshing: true},
-      () => {
-        this.getData();
-      }
-    );
+    this.setState({ refreshing: true }, () => {
+      this.getData();
+    });
   };
 
   asyncstorageSave_idsala_peliculas = async id => {
@@ -150,17 +146,7 @@ export default class MovieDetail extends Component {
                     onRefresh={this.handleRefresh()}
                   />
                 }
-              >
-                <Text style={{ marginBottom: 10 }}>
-                  Resumen: {element.resumen}
-                </Text>
-                <Text style={{ marginBottom: 10 }}>
-                  Categoría: {element.categoria}
-                </Text>
-                <Text style={{ marginBottom: 10 }}>
-                  Valor de Boleto: {element.valorBoleto}
-                </Text>
-              </Card>
+              ></Card>
             ))}
 
             <Card title="Horarios Disponibles">
@@ -170,6 +156,7 @@ export default class MovieDetail extends Component {
                   <Text>Sala: {element.idsala_nombre}</Text>
                   <RadioButton
                     value={element.id}
+                    color="#000"
                     status={checked === element.id ? "checked" : "unchecked"}
                     onPress={() => {
                       this.setState({ checked: element.id }),
@@ -184,7 +171,7 @@ export default class MovieDetail extends Component {
                           element.idsala_nombre
                         );
                     }}
-                  />
+                  />                
                 </View>
               ))}
             </Card>

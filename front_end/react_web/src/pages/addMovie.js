@@ -15,6 +15,7 @@ class AddMovie extends Component {
       categoria: '',
       valorBoleto: '',
       imagen: '',
+      _id:'',
       estado: true
     };
     //this.handleChange = this.handleChange.bind(this);
@@ -30,13 +31,34 @@ class AddMovie extends Component {
 
   encodeImageFileAsURL= (e) => {
     const reader = new FileReader();
-    const file = new Blob([this.setState({ [e.target.data]: e.target.value })], {type: 'text/plain'});
+    const file = this.setState({ imagen: e.target.files}, {type: 'text/plain'});
     reader.onloadend = e => {
       console.log( e.target.result)
       return( e.target.result)
     }
     reader.readAsDataURL(file);
   }
+
+  onFileChange=(e)=> {
+    this.setState({ file: e.target.files[0] },{type:'text/plain'});
+  }
+
+  editarPelicula(id) {
+    fetch(`http://localhost:3000/cine/movie/${id}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        this.setState({
+          titulo: data.titulo,
+          categoria: data.categoria,
+          precio: data.precio,
+          resumen: data.resumen,
+          imagen: data.imagen,
+          _id: data._id
+        });
+      });
+  }
+
 
   saveData = e => {
     e.preventDefault();

@@ -181,7 +181,7 @@ class AddSalaPelicula extends Component {
                   </button>
                 </Link>
                 <button
-                  className=" mx-auto bg-white text-gray-800 font-bold rounded border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-2 px-4 inline-flex items-center"
+                  className="bg-white text-gray-800 font-bold rounded border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-2 px-4 inline-flex items-center"
                   type="submit"
                 >
                   <span className="mr-2">Guardar</span>

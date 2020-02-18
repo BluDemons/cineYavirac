@@ -6,14 +6,13 @@ import {
   ImageBackground,
   TouchableHighlight,
   TextInput,
-  AsyncStorage,
-  Alert
+  AsyncStorage
 } from "react-native";
 import { Card } from "react-native-elements";
 import { Link } from "react-router-native";
 import axios from "axios";
 
-const API = "http://localhost:5000/cine/";
+const API = "http://192.168.0.112:5000/cine/";
 
 export default class SendTickets extends Component {
   constructor(props) {
@@ -74,7 +73,7 @@ export default class SendTickets extends Component {
       const numero_boletos = await AsyncStorage.getItem("numero_boletos");
       this.setState({ boletos: numero_boletos });
     } catch (e) {
-      Alert.alert(e);
+      alert(e);
     }
   };
 
@@ -82,7 +81,7 @@ export default class SendTickets extends Component {
     try {
       await AsyncStorage.clear();
     } catch (e) {
-      Alert.alert(e);
+      alert(e);
     }
   };
 

@@ -11,7 +11,13 @@ class Movie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      peliculas: []
+      peliculas: [],
+      titulo: "",
+      categoria: "",
+      precio: "",
+      resumen: "",
+      imagen: "",
+      _id: ""
     };
   }
 

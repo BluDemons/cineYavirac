@@ -49,22 +49,22 @@ class Inicio extends Component {
       });
   }
 
-  updateData = value => {
-        axios.put(API+'compra'+`?id=${value}`, {
-            persona_identificacion: this.state.persona_identificacion,
-            persona_nombre: this.state.persona_nombre,
-            persona_email: this.state.persona_email,
-            persona_direccion: this.state.persona_direccion,
-            persona_telefono: this.state.persona_telefono,
-            persona_clave: this.state.persona_clave
-        })
-        .then(response => {
-            console.log(response);
-        })
-        .catch(error => {
-            console.log(error);
-        });
-    }
+  // updateData = value => {
+  //       axios.put(API+'compra'+`?id=${value}`, {
+  //           persona_identificacion: this.state.persona_identificacion,
+  //           persona_nombre: this.state.persona_nombre,
+  //           persona_email: this.state.persona_email,
+  //           persona_direccion: this.state.persona_direccion,
+  //           persona_telefono: this.state.persona_telefono,
+  //           persona_clave: this.state.persona_clave
+  //       })
+  //       .then(response => {
+  //           console.log(response);
+  //       })
+  //       .catch(error => {
+  //           console.log(error);
+  //       });
+  //   }
 
   deleteData = value => {
     axios.delete(`${API + "sala_movie"}?id=${value}`, {
