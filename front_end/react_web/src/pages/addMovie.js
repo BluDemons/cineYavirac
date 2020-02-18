@@ -15,7 +15,6 @@ class AddMovie extends Component {
       categoria: '',
       valorBoleto: '',
       imagen: '',
-      _id:'',
       estado: true
     };
     //this.handleChange = this.handleChange.bind(this);
@@ -31,34 +30,23 @@ class AddMovie extends Component {
 
   encodeImageFileAsURL= (e) => {
     const reader = new FileReader();
-    const file = this.setState({ imagen: e.target.files}, {type: 'text/plain'});
+    const file = new Blob([e.target.value], {type: 'img/png'});
+    this.setState({imagen: file});
     reader.onloadend = e => {
-      console.log( e.target.result)
-      return( e.target.result)
+      this.setState( {imagen: e.target.result})
     }
     reader.readAsDataURL(file);
   }
 
   onFileChange=(e)=> {
-    this.setState({ file: e.target.files[0] },{type:'text/plain'});
+    let file = e.target.files[0]
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      this.setState( {imagen: reader.result})
+      console.log(reader.result)
+    }
+    reader.readAsDataURL(file);
   }
-
-  editarPelicula(id) {
-    fetch(`http://localhost:3000/cine/movie/${id}`)
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        this.setState({
-          titulo: data.titulo,
-          categoria: data.categoria,
-          precio: data.precio,
-          resumen: data.resumen,
-          imagen: data.imagen,
-          _id: data._id
-        });
-      });
-  }
-
 
   saveData = e => {
     e.preventDefault();
@@ -199,7 +187,7 @@ class AddMovie extends Component {
                   type="file"
                   required={true}
                   defaultValue={imagen}
-                  onChange={ this.encodeImageFileAsURL  } 
+                  onChange={ this.onFileChange  } 
                 />
               </div>
               <div className="mt-4 flex justify-between">
@@ -210,7 +198,7 @@ class AddMovie extends Component {
                   </button>
                 </Link>
                   <button
-                    className=" mx-auto bg-white text-gray-800 font-bold rounded border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-2 px-4 inline-flex items-center"
+                    className="bg-white text-gray-800 font-bold rounded border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-2 px-4 inline-flex items-center"
                     type="submit"
                   >
                     <span className="mr-2">Guardar</span>

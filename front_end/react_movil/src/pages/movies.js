@@ -11,7 +11,7 @@ import { Link } from "react-router-native";
 import { Card } from "react-native-elements";
 import axios from "axios";
 
-const API = "http://192.168.0.112:5000/cine/movie";
+const API = "http://172.16.11.206:5000/cine/movie";
 
 // https://aboutreact.com/example-of-sqlite-database-in-react-native/
 
@@ -52,7 +52,7 @@ export default class Movies extends Component {
       >
         <View style={styles.overlayContainer}>
           <View style={styles.top}>
-            <Text style={styles.header}> CARTELERA </Text>
+            <Text style={styles.header}> CARTELERA</Text>
           </View>
 
           <ScrollView vertical={true}>
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "100%",
     height: "100%",
-    top: 20
+    top: 25
   },
   overlayContainer: {
     flex: 1,
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   top: {
     height: "20%",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   header: {
     height: 40,
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgb(0, 128, 128)",
     opacity: 0.8,
     fontSize: 25,
-    zIndex: 10
+    zIndex: 10,
   },
   menuContainer: {
     height: "40%"

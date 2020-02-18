@@ -58,7 +58,7 @@ class AddSala extends Component {
         <div className="md:ml-64 xl:ml-64 sm:ml-0 pt-6 pb-8">
           <div className=" md:left-0 leading-loose">
             <form className="md:mr-0 m-4 p-10 bg-white rounded shadow-xl" onSubmit={this.saveData}>
-              <p className="text-gray-800 font-medium">Customer information</p>
+              <p className="text-gray-800 font-medium">Salas</p>
               <div className="">
                 <label className="block text-sm text-gray-600" htmlFor="nombre">
                   Nombre
@@ -99,7 +99,7 @@ class AddSala extends Component {
                   </button>
                 </Link>
                   <button
-                    className=" mx-auto bg-white text-gray-800 font-bold rounded border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-2 px-4 inline-flex items-center"
+                    className="bg-white text-gray-800 font-bold rounded border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-2 px-4 inline-flex items-center"
                     type="submit"
                   >
                     <span className="mr-2">Guardar</span>

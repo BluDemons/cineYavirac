@@ -223,8 +223,8 @@ class Inicio extends Component {
                             </td>                            
                             <td>
                               {compras.map(element => (
-                                <p className="p-2 px-5 text-center" key={element.id}>
-                                  {" "}
+                                <p className="p-2 px-5 text-justify-left" key={element.id}>
+                                  {"$"}
                                   {element.total}{" "}
                                 </p>
                               ))}

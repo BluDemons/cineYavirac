@@ -41,7 +41,7 @@ const sendMail = (req, res) => {
     console.log(nodemailer.getTestMessageUrl(datos));
 
     // only needed when using pooled connections
-    transporter.close();
+    //transporter.close();
   });
 };
 

@@ -41,7 +41,9 @@ class Movie extends Component {
 
   render() {
     const { peliculas } = this.state;
-    const image = require("../assets/login.jpg");
+    //const image = require("../assets/login.jpg");
+    // const image = new Image();
+    // image.src = this.setState.imagen;
     return (
       <div>
         <Sidebar />
@@ -66,7 +68,7 @@ class Movie extends Component {
               >
                 <div className="relative pt-10 px-10 flex items-center justify-center">
                   <div className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"></div>
-                  <img className="relative w-40" src={image} alt="" />
+                  <img className="relative w-40" src={element.imagen} alt="" />
                 </div>
                 <div className="relative text-white px-6 pb-6 mt-6">
                   <div className=" justify-between">

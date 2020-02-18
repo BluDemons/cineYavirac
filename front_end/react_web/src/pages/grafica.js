@@ -49,7 +49,7 @@ export default class Grafica extends Component {
       data: this.state.reporte
     };
     const chartConfigs = {
-      type: "pie2d",
+      type: "pie3d",
       dataSource: datos,
       renderAt: "chart-container",
       width:800

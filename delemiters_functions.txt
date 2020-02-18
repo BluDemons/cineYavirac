@@ -12,6 +12,8 @@ BEGIN
     RETURN V_PELICULA;
 END$$
 
+DELIMITER;
+
 CREATE FUNCTION C_SALA(P_ID INTEGER)
 RETURNS VARCHAR(150)
 DETERMINISTIC
@@ -24,6 +26,10 @@ BEGIN
     RETURN V_SALA;
 END$$
 
+DELIMITER;
+
+DELIMITER $$
+
 CREATE FUNCTION C_HORARIO(P_ID INTEGER)
 RETURNS VARCHAR(150)
 DETERMINISTIC
@@ -35,3 +41,22 @@ BEGIN
     WHERE id = P_ID;
     RETURN V_HORA;
 END$$
+
+DELIMITER;
+
+DELIMITER $$
+
+CREATE FUNCTION C_TOTAL(P_ID INTEGER)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+    DECLARE V_TOTAL INTEGER;
+
+    SELECT sum(peliculas.valorBoleto*compras.numero_boletos) as total INTO V_TOTAL
+    FROM compras join sala_peliculas on sala_peliculas.id = compras.idsala_peliculas join peliculas on peliculas.id = sala_peliculas.idpelicula 
+    group by peliculas.titulo
+    WHERE id = P_ID;
+    RETURN V_TOTAL;
+END$$
+
+DELIMITER;
