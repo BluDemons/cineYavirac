@@ -49,22 +49,6 @@ class Inicio extends Component {
       });
   }
 
-  // updateData = value => {
-  //       axios.put(API+'compra'+`?id=${value}`, {
-  //           persona_identificacion: this.state.persona_identificacion,
-  //           persona_nombre: this.state.persona_nombre,
-  //           persona_email: this.state.persona_email,
-  //           persona_direccion: this.state.persona_direccion,
-  //           persona_telefono: this.state.persona_telefono,
-  //           persona_clave: this.state.persona_clave
-  //       })
-  //       .then(response => {
-  //           console.log(response);
-  //       })
-  //       .catch(error => {
-  //           console.log(error);
-  //       });
-  //   }
 
   deleteData = value => {
     axios.delete(`${API + "sala_movie"}?id=${value}`, {
@@ -122,7 +106,7 @@ class Inicio extends Component {
                                 <div className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"></div>
                                 <img
                                   className="relative w-40"
-                                  src={image}
+                                  src={element.imagen}
                                   alt=""
                                 />
                               </div>

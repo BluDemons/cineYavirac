@@ -8,7 +8,7 @@ const sendMail = (req, res) => {
     secure: true,
     auth: {
       user: "jar.salazar@yavirac.edu.ec",
-      pass: "quemasbe"
+      pass: "*****"
     },
     tls: {
       // no fallar en certs inválidos

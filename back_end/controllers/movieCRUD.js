@@ -23,8 +23,7 @@ const postData = (req, res) => {
     
     if (!datos) {
         res.status(400);
-        res,
-            json({
+        res.json({
                 error: "Bad Request"
             });
     } else {

@@ -38,7 +38,7 @@ const query2 = (req, res) => {
 const query3 = (req, res) => {
   db.sequelize
     .query(
-      `select id, idpelicula, (select c_pelicula(idpelicula)) as idpelicula_titulo, idsala, (select c_sala(idsala)) as idsala_nombre, idhorario, (select c_horario(idhorario)) as idhorario_hora from sala_peliculas;`,
+      `select id, idpelicula, (select c_pelicula(idpelicula)) as idpelicula_titulo, (select c_pelicula_imagen(idpelicula)) as imagen, idsala, (select c_sala(idsala)) as idsala_nombre, idhorario, (select c_horario(idhorario)) as idhorario_hora from sala_peliculas;`,
       { type: db.sequelize.QueryTypes.SELECT }
     )
     .then(response => {

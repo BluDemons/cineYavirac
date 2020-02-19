@@ -12,7 +12,7 @@ import { Card } from "react-native-elements";
 import { Link } from "react-router-native";
 import axios from "axios";
 
-const API = "http://172.16.11.206:5000/cine/";
+const API = "http://172.16.11.130:5000/cine/";
 
 export default class SendTickets extends Component {
   constructor(props) {

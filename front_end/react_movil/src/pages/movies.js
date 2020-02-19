@@ -11,7 +11,7 @@ import { Link } from "react-router-native";
 import { Card } from "react-native-elements";
 import axios from "axios";
 
-const API = "http://172.16.11.206:5000/cine/movie";
+const API = "http://172.16.11.130:5000/cine/movie";
 
 // https://aboutreact.com/example-of-sqlite-database-in-react-native/
 
@@ -62,7 +62,7 @@ export default class Movies extends Component {
                 key={element.id}
                 onPress={() => this.asyncstorageSave(element.id)}
               >
-                <Card image={require("../../assets/ticket.jpg")}>
+                <Card image={{uri:`${element.imagen}`}}>
                   <Text
                     style={{
                       marginBottom: 10,

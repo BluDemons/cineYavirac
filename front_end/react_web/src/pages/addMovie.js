@@ -28,24 +28,29 @@ class AddMovie extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  encodeImageFileAsURL= (e) => {
+  encodeImageFileAsURL(e){
     const reader = new FileReader();
-    const file = new Blob([e.target.value], {type: 'img/png'});
-    this.setState({imagen: file});
-    reader.onloadend = e => {
-      this.setState( {imagen: e.target.result})
-    }
+    const file = e.target.files[0];
     reader.readAsDataURL(file);
+    reader.onload = e => {
+      //this.setState( {imagen: reader.result})
+      console.log(reader.result)
+    }
   }
 
   onFileChange=(e)=> {
-    let file = e.target.files[0]
+    const file = e.target.files[0]
     const reader = new FileReader();
-    reader.onloadend = () => {
-      this.setState( {imagen: reader.result})
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.setState( {
+        imagen: reader.result
+      }) 
       console.log(reader.result)
     }
-    reader.readAsDataURL(file);
+    reader.onerror = function (error){
+      console.log('Error:',error)
+    }
   }
 
   saveData = e => {
