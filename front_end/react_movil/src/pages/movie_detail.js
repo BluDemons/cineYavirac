@@ -15,7 +15,7 @@ import { Link } from "react-router-native";
 import { RadioButton } from "react-native-paper";
 import axios from "axios";
 
-const API = "http://172.16.11.130:5000/cine/";
+const API = "http://192.168.0.112:5000/cine/";
 
 export default class MovieDetail extends Component {
   constructor(props) {
